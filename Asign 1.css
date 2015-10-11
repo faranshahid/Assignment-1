@@ -1,0 +1,58 @@
+.bg-slideshow,
+.bg-slideshow: after
+{
+	position: absolute;
+	height: 90%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+}
+.bg-slideshow: after
+{
+	content: '';
+	background: url("background.jpg");
+	background-repeat: top left;	
+}
+bg-slideshow li span
+{
+	position: absolute;
+	height: 90%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	color: transparent;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: none;
+	opacity: 0;
+	z-index: -2;
+	-webkit-backface-visibility: hidden;
+	-webkit-animation: bgAnimation 6s linear infinite 0s;
+}
+.bg-slideshow li: nth-child(1) span
+{
+	background-image: url(background1.jpg);
+}
+.bg-slideshow li: nth-child(2) span
+{
+	background-image: url(background2.jpg);
+	-webkit-animation-delay: 2s;
+}
+.bg-slideshow li: nth-child(3) span
+{
+	background-image: url(background3.jpg);
+	-webkit-animation-delay: 4s;
+}
+@-webkit-keyframe-bgAnimation
+{
+	0% {opacity: 0; -webkit-animation-timing-function: easi-in;}
+	12% {opacity: 1;-webkit-animation-timing-function: easi-out;}
+	25% {opacity: 1;}
+	50% {opacity: 0;}
+	100% {opacity: 0;}
+}
+.no-cssanimations .bg-slideshow li span
+{
+	opacity: 1;
+}
